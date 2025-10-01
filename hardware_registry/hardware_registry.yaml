@@ -49,6 +49,13 @@ board_vendors:
     url: "https://beagleboard.org"
     details: "Open-source single-board computers"
 
+  phytech:
+    id: "phytech"
+    name: "Phytec"
+    type: "board_vendor"
+    url: "https://www.phytec.com"
+    details: "Embedded systems and automation solutions"
+
   raspberry_pi:
     id: "raspberry_pi"
     name: "Raspberry Pi Foundation"
@@ -62,7 +69,6 @@ board_vendors:
     type: "board_vendor"
     url: "https://new.siemens.com"
     details: "Industrial automation and IoT hardware"
-
 
 boards:
   sk-am62b-p1:
@@ -86,6 +92,17 @@ boards:
     details: "Open-source single board computer based on the Texas Instruments AM6254 quad-core Cortex-A53 Arm SoC designed to simplify the process of adding sensors, actuators, indicators, human interfaces, and connectivity to a reliable embedded system"
     form_factor: "credit_card"
     category: "development_board"
+
+  phycore_am62x:
+    id: "phycore_am62x"
+    name: "phyCORE-AM62x"
+    type: "single_board_computer"
+    vendor_id: "phytec"
+    processor_id: "am62x"
+    url: "https://www.phytec.com/product/phycore-am62x/"
+    details: "Single-board computer based on Texas Instruments AM62x Arm SoC"
+    form_factor: "credit_card"
+    category: "product_board"
 
   iot2050:
     id: "iot2050"
