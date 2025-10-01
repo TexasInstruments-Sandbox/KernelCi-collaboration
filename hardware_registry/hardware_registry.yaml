@@ -1,0 +1,111 @@
+silicon_vendors:
+  ti:
+    id: "ti"
+    name: "Texas Instruments"
+    type: "silicon_vendor"
+    url: "https://www.ti.com"
+    details: "Embedded processors, microcontrollers, and analog ICs"
+
+  broadcom:
+    id: "broadcom"
+    name: "Broadcom"
+    type: "silicon_vendor"
+    url: "https://www.broadcom.com"
+    details: "Networking and multimedia SoCs"
+
+processors:
+  am62x:
+    id: "am62x"
+    name: "AM62X"
+    type: "soc"
+    vendor_id: "ti"  # Cross-link to silicon vendor
+    url: "https://www.ti.com/product/AM625"
+    details: "Quad 64-bit Arm Cortex-A53 microprocessor subsystem at up to 1.4 GHz"
+    architecture: "ARM64"
+    cores: 4
+
+  bcm2712:
+    id: "bcm2712"
+    name: "BCM2712"
+    type: "soc"
+    vendor_id: "broadcom"
+    url: "https://www.raspberrypi.com/documentation/computers/processors.html#bcm2712"
+    details: "Quad-core Arm Cortex-A76 @ 2.4GHz"
+    architecture: "ARM64"
+    cores: 4
+
+board_vendors:
+  ti:
+    id: "ti"
+    name: "Texas Instruments"
+    type: "board_vendor"
+    url: "https://ti.com"
+    details: "Evaluation boards for TI products"
+
+  beagleboard:
+    id: "beagleboard"
+    name: "BeagleBoard.org Foundation"
+    type: "board_vendor"
+    url: "https://beagleboard.org"
+    details: "Open-source single-board computers"
+
+  raspberry_pi:
+    id: "raspberry_pi"
+    name: "Raspberry Pi Foundation"
+    type: "board_vendor"
+    url: "https://www.raspberrypi.org"
+    details: "Educational and hobbyist SBCs"
+
+  siemens:
+    id: "siemens"
+    name: "Siemens"
+    type: "board_vendor"
+    url: "https://new.siemens.com"
+    details: "Industrial automation and IoT hardware"
+
+
+boards:
+  sk-am62b-p1:
+    id: "sk-am62b-p1"
+    name: "SK-AM62B-P1"
+    type: "single_board_computer"
+    vendor_id: "ti"  # Cross-link to board vendor
+    processor_id: "am62x"      # Cross-link to processor
+    url: "https://www.ti.com/tool/SK-AM62B-P1"
+    details: "Embedded Linux development board for AM62x based microcontrollers"
+    form_factor: "starter_kit"
+    category: "development_board"
+
+  beagleplay:
+    id: "beagleplay"
+    name: "BeaglePlay"
+    type: "single_board_computer"
+    vendor_id: "beagleboard"  # Cross-link to board vendor
+    processor_id: "am62x"      # Cross-link to processor
+    url: "https://www.beagleboard.org/boards/beagleplay"
+    details: "Open-source single board computer based on the Texas Instruments AM6254 quad-core Cortex-A53 Arm SoC designed to simplify the process of adding sensors, actuators, indicators, human interfaces, and connectivity to a reliable embedded system"
+    form_factor: "credit_card"
+    category: "development_board"
+
+  iot2050:
+    id: "iot2050"
+    name: "SIMATIC IOT2050"
+    type: "industrial_gateway"
+    vendor_id: "siemens"
+    processor_id: "am62x"
+    url: "https://new.siemens.com/global/en/products/automation/pc-based/iot-gateways/simatic-iot2050.html"
+    details: "Industrial IoT edge gateway"
+    form_factor: "din_rail"
+    category: "product_board"
+
+  rpi5:
+    id: "rpi5"
+    name: "Raspberry Pi 5"
+    type: "single_board_computer"
+    vendor_id: "raspberry_pi"
+    processor_id: "bcm2712"
+    url: "https://www.raspberrypi.com/products/raspberry-pi-5/"
+    details: "Latest generation Raspberry Pi with PCIe support"
+    form_factor: "credit_card"
+    category: "product_board"
+
