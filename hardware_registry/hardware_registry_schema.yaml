@@ -30,7 +30,7 @@ $defs:
     properties:
       id:
         type: "string"
-        pattern: '^[a-z0-9_]+$'
+        pattern: '^[a-z0-9_-]+$'
         description: "Unique identifier (lowercase, underscores allowed)"
       name:
         type: "string"
@@ -66,6 +66,7 @@ $defs:
   vendor_entity:
     allOf:
       - $ref: "#/$defs/base_entity"
+      - required: ["id", "name", "type", "url"]
       - properties:
           type:
             type: "string"
@@ -88,7 +89,7 @@ $defs:
   processor:
     allOf:
       - $ref: "#/$defs/base_entity"
-      - required: ["vendor_id"]
+      - required: ["vendor_id", "id", "name", "architecture", "url"]
         properties:
           type:
             type: "string"
@@ -96,12 +97,12 @@ $defs:
             description: "Type of silicon component"
           vendor_id:
             type: "string"
-            pattern: '^[a-z0-9_]+$'
+            pattern: '^[a-z0-9_-]+$'
             description: "Reference to silicon vendor ID"
           architecture:
             type: "string"
             description: "Instruction set architecture"
-            examples: ["ARM64", "x86_64", "RISC-V", "MIPS", "PowerPC"]
+            examples: ["arm", "arm64", "x86_64", "risc-v", "mips", "powerpc"]
           cores:
             type: "integer"
             minimum: 1
@@ -115,28 +116,28 @@ $defs:
             minimum: 0
             description: "Manufacturing process node in nanometers"
 
-  # SoM (System on Module) entity between processor and board
-  som:
+  # System Modules (System on Module or or System in Package) entity between processor and board
+  system_module:
     allOf:
       - $ref: "#/$defs/base_entity"
-      - required: ["vendor_id", "processor_id"]
+      - required: ["vendor_id", "processor_id", "type", "url"]
         properties:
           type:
             type: "string"
-            const: "system_on_module"
-            description: "Represents a SoM (System on Module)"
+            enum: ["system_on_module", "system_in_package"]
+            description: "Represents a SoM (System on Module) or SiP (System in Package)"
           vendor_id:
             type: "string"
-            pattern: '^[a-z0-9_]+$'
-            description: "Reference to SoM vendor ID (typically a board vendor like Toradex/PHYTEC)"
+            pattern: '^[a-z0-9_-]+$'
+            description: "Reference to SoM/SiP vendor ID (typically a board vendor like Toradex/PHYTEC)"
           processor_id:
             type: "string"
-            pattern: '^[a-z0-9_]+$'
-            description: "Reference to the processor/SoC ID used inside the SoM"
+            pattern: '^[a-z0-9_-]+$'
+            description: "Reference to the processor/SoC ID used inside the SoM/SiP"
           form_factor:
             type: "string"
-            description: "SoM connector/mechanical standard"
-            examples: ["sodimm", "edimm", "mxm", "custom"]
+            description: "SoM/SiP connector/mechanical standard"
+            examples: ["sodimm", "edimm", "mxm", "custom", "package"]
           memory_mb:
             type: "integer"
             minimum: 0
@@ -147,7 +148,7 @@ $defs:
   board:
     allOf:
       - $ref: "#/$defs/base_entity"
-      - required: ["vendor_id", "processor_id"]
+      - required: ["vendor_id", "processor_id", "name", "type", "url"]
         properties:
           type:
             type: "string"
@@ -160,29 +161,23 @@ $defs:
               - "industrial_gateway"
               - "laptop"
               - "desktop"
-              - "embedded_module"
-              - "system_on_module"
             description: "Board type/category"
           vendor_id:
             type: "string"
-            pattern: '^[a-z0-9_]+$'
+            pattern: '^[a-z0-9_-]+$'
             description: "Reference to board vendor ID"
           processor_id:
             type: "string"
-            pattern: '^[a-z0-9_]+$'
+            pattern: '^[a-z0-9_-]+$'
             description: "Reference to processor ID (often same as SoM's processor)"
-          som_id:
+          system_module_id:
             type: "string"
-            pattern: '^[a-z0-9_]+$'
+            pattern: '^[a-z0-9_-]+$'
             description: "Optional reference to a System on Module used on this board"
           form_factor:
             type: "string"
             description: "Physical form factor"
             examples: ["credit_card", "din_rail", "laptop", "mini_pc", "pcie_card", "m.2", "atx", "matx"]
-          category:
-            type: "string"
-            enum: ["evaluation_board", "development_board", "product_board"]
-            description: "Usage category"
           memory_mb:
             type: "integer"
             minimum: 0
@@ -195,7 +190,7 @@ $defs:
   entity_collection:
     type: "object"
     patternProperties:
-      '^[a-z0-9_]+$':
+      '^[a-z0-9_-]+$':
         type: "object"
     additionalProperties: false
 
@@ -209,40 +204,40 @@ properties:
       - $ref: "#/$defs/entity_collection"
       - description: "Collection of silicon/chip manufacturers"
         patternProperties:
-          '^[a-z0-9_]+$':
+          '^[a-z0-9_-]+$':
             $ref: "#/$defs/silicon_vendor"
-
-  processors:
-    allOf:
-      - $ref: "#/$defs/entity_collection"
-      - description: "Collection of processors, SoCs, CPUs, and microcontrollers"
-        patternProperties:
-          '^[a-z0-9_]+$':
-            $ref: "#/$defs/processor"
 
   board_vendors:
     allOf:
       - $ref: "#/$defs/entity_collection"
       - description: "Collection of board manufacturers"
         patternProperties:
-          '^[a-z0-9_]+$':
+          '^[a-z0-9_-]+$':
             $ref: "#/$defs/board_vendor"
 
-  system_on_modules:
+  processors:
     allOf:
       - $ref: "#/$defs/entity_collection"
-      - description: "Collection of reusable System-on-Modules (SoMs)"
+      - description: "Collection of processors, SoCs, CPUs, and microcontrollers"
         patternProperties:
-          '^[a-z0-9_]+$':
-            $ref: "#/$defs/som"
+          '^[a-z0-9_-]+$':
+            $ref: "#/$defs/processor"
+
+  system_modules:
+    allOf:
+      - $ref: "#/$defs/entity_collection"
+      - description: "Collection of reusable System-on-Modules (SoMs) or System-in-Package (SiPs)"
+        patternProperties:
+          '^[a-z0-9_-]+$':
+            $ref: "#/$defs/system_module"
 
   boards:
     allOf:
       - $ref: "#/$defs/entity_collection"
       - description: "Collection of hardware boards"
         patternProperties:
-          '^[a-z0-9_]+$':
+          '^[a-z0-9_-]+$':
             $ref: "#/$defs/board"
 
-required: ["schema_info", "silicon_vendors", "processors", "board_vendors", "system_on_modules", "boards"]
+required: ["schema_info", "silicon_vendors", "board_vendors", "processors", "boards"]
 additionalProperties: false
