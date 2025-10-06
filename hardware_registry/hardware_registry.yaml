@@ -6,14 +6,12 @@ schema_info:
 silicon_vendors:
   ti:
     id: "ti"
-    name: "Texas Instruments"
     type: "silicon_vendor"
     url: "https://www.ti.com"
-    details: "Embedded processors, microcontrollers, and analog ICs"
+    details: "Texas Instruments embedded processors, microcontrollers, and analog ICs"
 
   broadcom:
     id: "broadcom"
-    name: "Broadcom"
     type: "silicon_vendor"
     url: "https://www.broadcom.com"
     details: "Networking and multimedia SoCs"
@@ -21,7 +19,6 @@ silicon_vendors:
 processors:
   am62x:
     id: "am62x"
-    name: "AM62X"
     type: "soc"
     vendor_id: "ti"  # Cross-link to silicon vendor
     url: "https://www.ti.com/product/AM625"
@@ -31,7 +28,6 @@ processors:
 
   bcm2712:
     id: "bcm2712"
-    name: "BCM2712"
     type: "soc"
     vendor_id: "broadcom"
     url: "https://www.raspberrypi.com/documentation/computers/processors.html#bcm2712"
@@ -42,43 +38,37 @@ processors:
 board_vendors:
   ti:
     id: "ti"
-    name: "Texas Instruments"
     type: "board_vendor"
     url: "https://ti.com"
-    details: "Evaluation boards for TI products"
+    details: "Evaluation boards for Texas Instruments products"
 
   beagleboard:
     id: "beagleboard"
-    name: "BeagleBoard.org Foundation"
     type: "board_vendor"
     url: "https://beagleboard.org"
     details: "Open-source single-board computers"
 
   phytec:
     id: "phytec"
-    name: "Phytec"
     type: "board_vendor"
     url: "https://www.phytec.com"
     details: "Embedded systems and automation solutions"
 
   raspberry_pi:
     id: "raspberry_pi"
-    name: "Raspberry Pi Foundation"
     type: "board_vendor"
     url: "https://www.raspberrypi.org"
     details: "Educational and hobbyist SBCs"
 
   siemens:
     id: "siemens"
-    name: "Siemens"
     type: "board_vendor"
     url: "https://new.siemens.com"
     details: "Industrial automation and IoT hardware"
 
 system_modules:
-  phycore-am62x:
-    id: "phycore-am62x"
-    name: "PhyCore AM62X"
+  PhyCore-AM62X:
+    id: "PhyCore-AM62X"
     type: "system_on_module"
     vendor_id: "phytec"  # Cross-link to board vendor
     processor_id: "am62x"      # Cross-link to processor
@@ -89,7 +79,6 @@ system_modules:
 
   sk-am62-sip:
     id: "sk-am62-sip"
-    name: "SK-AM62-SIP"
     type: "system_in_package"
     vendor_id: "ti"  # Cross-link to board vendor
     processor_id: "am62x"      # Cross-link to processor
@@ -101,7 +90,6 @@ system_modules:
 boards:
   sk-am62b-p1:
     id: "sk-am62b-p1"
-    name: "SK-AM62B-P1"
     type: "single_board_computer"
     vendor_id: "ti"  # Cross-link to board vendor
     processor_id: "am62x"      # Cross-link to processor
@@ -112,7 +100,6 @@ boards:
 
   beagleplay:
     id: "beagleplay"
-    name: "BeaglePlay"
     type: "single_board_computer"
     vendor_id: "beagleboard"  # Cross-link to board vendor
     processor_id: "am62x"      # Cross-link to processor
@@ -121,9 +108,8 @@ boards:
     form_factor: "credit_card"
     category: "development_board"
 
-  phyboard-am62x:
-    id: "phyboard-am62x"
-    name: "phyBOARD-AM62x"
+  phyBOARD-AM62x:
+    id: "phyBOARD-AM62x"
     type: "single_board_computer"
     vendor_id: "phytec"
     system_module_id: "phycore-am62x"
@@ -135,7 +121,6 @@ boards:
 
   iot2050:
     id: "iot2050"
-    name: "SIMATIC IOT2050"
     type: "industrial_gateway"
     vendor_id: "siemens"
     processor_id: "am62x"
@@ -146,12 +131,11 @@ boards:
 
   rpi5:
     id: "rpi5"
-    name: "Raspberry Pi 5"
     type: "single_board_computer"
     vendor_id: "raspberry_pi"
     processor_id: "bcm2712"
     url: "https://www.raspberrypi.com/products/raspberry-pi-5/"
-    details: "Latest generation Raspberry Pi with PCIe support"
+    details: "Raspberry Pi 5 with PCIe support"
     form_factor: "credit_card"
     category: "product_board"
 
