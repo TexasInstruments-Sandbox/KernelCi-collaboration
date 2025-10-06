@@ -1,3 +1,8 @@
+schema_info:
+  version: "1.0.0"
+  revision_date: "2025-10-01"
+  compatible_versions: ["1.0.0"]
+
 silicon_vendors:
   ti:
     id: "ti"
@@ -49,8 +54,8 @@ board_vendors:
     url: "https://beagleboard.org"
     details: "Open-source single-board computers"
 
-  phytech:
-    id: "phytech"
+  phytec:
+    id: "phytec"
     name: "Phytec"
     type: "board_vendor"
     url: "https://www.phytec.com"
@@ -69,6 +74,29 @@ board_vendors:
     type: "board_vendor"
     url: "https://new.siemens.com"
     details: "Industrial automation and IoT hardware"
+
+system_modules:
+  phycore-am62x:
+    id: "phycore-am62x"
+    name: "PhyCore AM62X"
+    type: "system_on_module"
+    vendor_id: "phytec"  # Cross-link to board vendor
+    processor_id: "am62x"      # Cross-link to processor
+    url: "https://www.phytec.com/product/phycore-am62x/"
+    details: "system on module designed to be deployed in a wide variety of embedded applications"
+    form_factor: "starter_kit"
+    category: "development_board"
+
+  sk-am62-sip:
+    id: "sk-am62-sip"
+    name: "SK-AM62-SIP"
+    type: "system_in_package"
+    vendor_id: "ti"  # Cross-link to board vendor
+    processor_id: "am62x"      # Cross-link to processor
+    url: "https://www.ti.com/tool/SK-AM62-SIP"
+    details: "AM62x system-in-package starter kit for Sitara� processors"
+    form_factor: "starter_kit"
+    category: "development_board"
 
 boards:
   sk-am62b-p1:
@@ -93,14 +121,15 @@ boards:
     form_factor: "credit_card"
     category: "development_board"
 
-  phycore_am62x:
-    id: "phycore_am62x"
-    name: "phyCORE-AM62x"
+  phyboard-am62x:
+    id: "phyboard-am62x"
+    name: "phyBOARD-AM62x"
     type: "single_board_computer"
     vendor_id: "phytec"
+    system_module_id: "phycore-am62x"
     processor_id: "am62x"
-    url: "https://www.phytec.com/product/phycore-am62x/"
-    details: "Single-board computer based on Texas Instruments AM62x Arm SoC"
+    url: "https://www.phytec.com/product/phyboard-am62x/"
+    details: "Low cost solution for general purpose embedded application"
     form_factor: "credit_card"
     category: "product_board"
 
