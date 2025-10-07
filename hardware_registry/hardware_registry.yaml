@@ -16,6 +16,12 @@ silicon_vendors:
     url: "https://www.broadcom.com"
     details: "Networking and multimedia SoCs"
 
+  intel:
+    id: "intel"
+    type: "silicon_vendor"
+    url: "https://www.intel.com"
+    details: "Processors for laptops, desktops, workstations, and servers"
+
 processors:
   am62x:
     id: "am62x"
@@ -33,6 +39,15 @@ processors:
     url: "https://www.raspberrypi.com/documentation/computers/processors.html#bcm2712"
     details: "Quad-core Arm Cortex-A76 @ 2.4GHz"
     architecture: "ARM64"
+    cores: 4
+
+  core-i5-1140g7:  # Intel Core i5-1140G7
+    id: "core-i5-1140g7"
+    type: "cpu"
+    vendor_id: "intel"
+    url: "https://www.intel.com/content/www/us/en/products/sku/208659/intel-core-i51140g7-processor-8m-cache-up-to-4-20-ghz-with-ipu/specifications.html"
+    details: "Intel Core i5-1140G7"
+    architecture: "x86_64"
     cores: 4
 
 platform_vendors:
@@ -59,6 +74,12 @@ platform_vendors:
     type: "platform_vendor"
     url: "https://www.raspberrypi.org"
     details: "Educational and hobbyist SBCs"
+
+  acer:
+    id: "acer"
+    type: "platform_vendor"
+    url: "https://www.acer.com"
+    details: "Laptop and desktop computers"
 
   siemens:
     id: "siemens"
@@ -138,4 +159,14 @@ platforms:
     details: "Raspberry Pi 5 with PCIe support"
     form_factor: "credit_card"
     category: "product_board"
+
+  acer-cp514-2h-1140G7:
+    id: "acer-cp514-2h-1140G7"
+    type: "laptop"
+    vendor_id: "acer"
+    processor_id: "core-i5-1140g7"
+    url: "https://www.acer.com/us/en/products/acer-cp514-2h-1140g7"
+    details: "Acer CP514-2H 1140G7"
+    form_factor: "laptop"
+    category: "laptop"
 
