@@ -1,7 +1,7 @@
 
 $schema: "http://json-schema.org/draft-07/schema#"
 title: "Hardware Catalog Schema"
-description: "Schema for describing silicon vendors, processors/SoCs, system-on-modules (SoMs), board vendors, and boards with cross-references"
+description: "Schema for describing silicon vendors, processors/SoCs, system-on-modules (SoMs), platform vendors, and platforms with cross-references"
 type: "object"
 
 $defs:
@@ -66,7 +66,7 @@ $defs:
       - properties:
           type:
             type: "string"
-            enum: ["silicon_vendor", "board_vendor"]
+            enum: ["silicon_vendor", "platform_vendor"]
 
   silicon_vendor:
     allOf:
@@ -75,12 +75,12 @@ $defs:
           type:
             const: "silicon_vendor"
 
-  board_vendor:
+  platform_vendor:
     allOf:
       - $ref: "#/$defs/vendor_entity"
       - properties:
           type:
-            const: "board_vendor"
+            const: "platform_vendor"
 
   processor:
     allOf:
@@ -112,7 +112,7 @@ $defs:
             minimum: 0
             description: "Manufacturing process node in nanometers"
 
-  # System Modules (System on Module or or System in Package) entity between processor and board
+  # System Modules (System on Module or or System in Package) entity between processor and platform
   system_module:
     allOf:
       - $ref: "#/$defs/base_entity"
@@ -125,7 +125,7 @@ $defs:
           vendor_id:
             type: "string"
             pattern: '^[a-zA-Z0-9_-]+$'
-            description: "Reference to SoM/SiP vendor ID (typically a board vendor like Toradex/PHYTEC)"
+            description: "Reference to SoM/SiP vendor ID (typically a platform vendor like Toradex/PHYTEC)"
           processor_id:
             type: "string"
             pattern: '^[a-zA-Z0-9_-]+$'
@@ -141,7 +141,7 @@ $defs:
             type: "number"
             minimum: 0
 
-  board:
+  platform:
     allOf:
       - $ref: "#/$defs/base_entity"
       - required: ["vendor_id", "processor_id", "type", "url"]
@@ -157,11 +157,11 @@ $defs:
               - "industrial_gateway"
               - "laptop"
               - "desktop"
-            description: "Board type/category"
+            description: "Platform type/category"
           vendor_id:
             type: "string"
             pattern: '^[a-zA-Z0-9_-]+$'
-            description: "Reference to board vendor ID"
+            description: "Reference to platform vendor ID"
           processor_id:
             type: "string"
             pattern: '^[a-zA-Z0-9_-]+$'
@@ -169,7 +169,7 @@ $defs:
           system_module_id:
             type: "string"
             pattern: '^[a-zA-Z0-9_-]+$'
-            description: "Optional reference to a System on Module used on this board"
+            description: "Optional reference to a System on Module used on this platform"
           form_factor:
             type: "string"
             description: "Physical form factor"
@@ -177,7 +177,7 @@ $defs:
           memory_mb:
             type: "integer"
             minimum: 0
-            description: "Onboard memory in megabytes"
+            description: "Onboard emory in megabytes"
           storage_gb:
             type: "number"
             minimum: 0
@@ -203,13 +203,13 @@ properties:
           '^[a-zA-Z0-9_-]+$':
             $ref: "#/$defs/silicon_vendor"
 
-  board_vendors:
+  platform_vendors:
     allOf:
       - $ref: "#/$defs/entity_collection"
-      - description: "Collection of board manufacturers"
+      - description: "Collection of platform manufacturers"
         patternProperties:
           '^[a-zA-Z0-9_-]+$':
-            $ref: "#/$defs/board_vendor"
+            $ref: "#/$defs/platform_vendor"
 
   processors:
     allOf:
@@ -227,13 +227,13 @@ properties:
           '^[a-zA-Z0-9_-]+$':
             $ref: "#/$defs/system_module"
 
-  boards:
+  platforms:
     allOf:
       - $ref: "#/$defs/entity_collection"
-      - description: "Collection of hardware boards"
+      - description: "Collection of hardware platforms"
         patternProperties:
           '^[a-zA-Z0-9_-]+$':
-            $ref: "#/$defs/board"
+            $ref: "#/$defs/platform"
 
-required: ["schema_info", "silicon_vendors", "board_vendors", "processors", "boards"]
+required: ["schema_info", "silicon_vendors", "platform_vendors", "processors", "platforms"]
 additionalProperties: false

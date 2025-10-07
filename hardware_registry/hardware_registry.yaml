@@ -35,34 +35,34 @@ processors:
     architecture: "ARM64"
     cores: 4
 
-board_vendors:
+platform_vendors:
   ti:
     id: "ti"
-    type: "board_vendor"
+    type: "platform_vendor"
     url: "https://ti.com"
     details: "Evaluation boards for Texas Instruments products"
 
   beagleboard:
     id: "beagleboard"
-    type: "board_vendor"
+    type: "platform_vendor"
     url: "https://beagleboard.org"
     details: "Open-source single-board computers"
 
   phytec:
     id: "phytec"
-    type: "board_vendor"
+    type: "platform_vendor"
     url: "https://www.phytec.com"
     details: "Embedded systems and automation solutions"
 
   raspberry_pi:
     id: "raspberry_pi"
-    type: "board_vendor"
+    type: "platform_vendor"
     url: "https://www.raspberrypi.org"
     details: "Educational and hobbyist SBCs"
 
   siemens:
     id: "siemens"
-    type: "board_vendor"
+    type: "platform_vendor"
     url: "https://new.siemens.com"
     details: "Industrial automation and IoT hardware"
 
@@ -87,11 +87,11 @@ system_modules:
     form_factor: "starter_kit"
     category: "development_board"
 
-boards:
+platforms:
   sk-am62b-p1:
     id: "sk-am62b-p1"
     type: "single_board_computer"
-    vendor_id: "ti"  # Cross-link to board vendor
+    vendor_id: "ti"  # Cross-link to platform vendor
     processor_id: "am62x"      # Cross-link to processor
     url: "https://www.ti.com/tool/SK-AM62B-P1"
     details: "Embedded Linux development board for AM62x based microcontrollers"
@@ -101,7 +101,7 @@ boards:
   beagleplay:
     id: "beagleplay"
     type: "single_board_computer"
-    vendor_id: "beagleboard"  # Cross-link to board vendor
+    vendor_id: "beagleboard"  # Cross-link to platform vendor
     processor_id: "am62x"      # Cross-link to processor
     url: "https://www.beagleboard.org/boards/beagleplay"
     details: "Open-source single board computer based on the Texas Instruments AM6254 quad-core Cortex-A53 Arm SoC designed to simplify the process of adding sensors, actuators, indicators, human interfaces, and connectivity to a reliable embedded system"

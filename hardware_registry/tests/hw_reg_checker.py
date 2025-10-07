@@ -10,10 +10,10 @@ try:
     print("? Validation successful � corrected dataset conforms to schema!")
     print(f"Silicon vendors: {len(data_dict['silicon_vendors'])}")
     print(f"Processors: {len(data_dict['processors'])}")
-    print(f"Board vendors: {len(data_dict['board_vendors'])}")
+    print(f"Platform vendors: {len(data_dict['platform_vendors'])}")
     if 'system_modules' in data_dict:
         print(f"System modules: {len(data_dict['system_modules'])}")
-    print(f"Boards: {len(data_dict['boards'])}")
+    print(f"platforms: {len(data_dict['platforms'])}")
 except ValidationError as e:
     print("? Validation error:")
     print(f"   Message: {e.message}")
