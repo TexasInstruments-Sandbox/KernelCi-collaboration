@@ -42,6 +42,9 @@ $defs:
       details:
         type: "string"
         description: "Brief description"
+      version:
+        type: "string"
+        description: "Version identifier for the entity"
       release_date:
         type: "string"
         format: "date"

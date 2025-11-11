@@ -31,6 +31,7 @@ processors:
     details: "Quad 64-bit Arm Cortex-A53 microprocessor subsystem at up to 1.4 GHz"
     architecture: "ARM64"
     cores: 4
+    version: "1.1"
 
   bcm2712:
     id: "bcm2712"
@@ -40,6 +41,7 @@ processors:
     details: "Quad-core Arm Cortex-A76 @ 2.4GHz"
     architecture: "ARM64"
     cores: 4
+    version: "D0"
 
   core-i5-1140g7:
     id: "core-i5-1140g7"
@@ -49,6 +51,7 @@ processors:
     details: "Intel Core i5-1140G7"
     architecture: "x86_64"
     cores: 4
+    version: "Tiger Lake"
 
 platform_vendors:
   ti:
@@ -97,6 +100,7 @@ system_modules:
     details: "system on module designed to be deployed in a wide variety of embedded applications"
     form_factor: "starter_kit"
     category: "development_board"
+    version: "1573.1"
 
   sk-am62-sip:
     id: "sk-am62-sip"
@@ -118,6 +122,7 @@ platforms:
     details: "Embedded Linux development board for AM62x based microcontrollers"
     form_factor: "starter_kit"
     category: "development_board"
+    version: "Rev A"
 
   beagleplay:
     id: "beagleplay"
@@ -128,6 +133,7 @@ platforms:
     details: "Open-source single board computer based on the Texas Instruments AM6254 quad-core Cortex-A53 Arm SoC designed to simplify the process of adding sensors, actuators, indicators, human interfaces, and connectivity to a reliable embedded system"
     form_factor: "credit_card"
     category: "development_board"
+    version: "1.0B"
 
   phyBOARD-AM62x:
     id: "phyBOARD-AM62x"
@@ -139,6 +145,7 @@ platforms:
     details: "Low cost solution for general purpose embedded application"
     form_factor: "credit_card"
     category: "product_board"
+    version: "1576.4"
 
   iot2050:
     id: "iot2050"
@@ -159,6 +166,7 @@ platforms:
     details: "Raspberry Pi 5 with PCIe support"
     form_factor: "credit_card"
     category: "product_board"
+    version: "1.0"
 
   acer-cp514-2h-1140G7:
     id: "acer-cp514-2h-1140G7"
@@ -169,4 +177,3 @@ platforms:
     details: "Acer CP514-2H 1140G7"
     form_factor: "laptop"
     category: "laptop"
-
