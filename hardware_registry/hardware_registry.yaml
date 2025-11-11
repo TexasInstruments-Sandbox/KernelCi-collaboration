@@ -26,7 +26,7 @@ processors:
   am62x:
     id: "am62x"
     type: "soc"
-    vendor_id: "ti"  # Cross-link to silicon vendor
+    vendor_id: "ti"
     url: "https://www.ti.com/product/AM625"
     details: "Quad 64-bit Arm Cortex-A53 microprocessor subsystem at up to 1.4 GHz"
     architecture: "ARM64"
@@ -41,7 +41,7 @@ processors:
     architecture: "ARM64"
     cores: 4
 
-  core-i5-1140g7:  # Intel Core i5-1140G7
+  core-i5-1140g7:
     id: "core-i5-1140g7"
     type: "cpu"
     vendor_id: "intel"
@@ -91,8 +91,8 @@ system_modules:
   PhyCore-AM62X:
     id: "PhyCore-AM62X"
     type: "system_on_module"
-    vendor_id: "phytec"  # Cross-link to board vendor
-    processor_id: "am62x"      # Cross-link to processor
+    vendor_id: "phytec"
+    processor_id: "am62x"
     url: "https://www.phytec.com/product/phycore-am62x/"
     details: "system on module designed to be deployed in a wide variety of embedded applications"
     form_factor: "starter_kit"
@@ -101,8 +101,8 @@ system_modules:
   sk-am62-sip:
     id: "sk-am62-sip"
     type: "system_in_package"
-    vendor_id: "ti"  # Cross-link to board vendor
-    processor_id: "am62x"      # Cross-link to processor
+    vendor_id: "ti"
+    processor_id: "am62x"
     url: "https://www.ti.com/tool/SK-AM62-SIP"
     details: "AM62x system-in-package starter kit for Sitara� processors"
     form_factor: "starter_kit"
@@ -112,8 +112,8 @@ platforms:
   sk-am62b-p1:
     id: "sk-am62b-p1"
     type: "single_board_computer"
-    vendor_id: "ti"  # Cross-link to platform vendor
-    processor_id: "am62x"      # Cross-link to processor
+    vendor_id: "ti"
+    processor_id: "am62x"
     url: "https://www.ti.com/tool/SK-AM62B-P1"
     details: "Embedded Linux development board for AM62x based microcontrollers"
     form_factor: "starter_kit"
@@ -122,8 +122,8 @@ platforms:
   beagleplay:
     id: "beagleplay"
     type: "single_board_computer"
-    vendor_id: "beagleboard"  # Cross-link to platform vendor
-    processor_id: "am62x"      # Cross-link to processor
+    vendor_id: "beagleboard"
+    processor_id: "am62x"
     url: "https://www.beagleboard.org/boards/beagleplay"
     details: "Open-source single board computer based on the Texas Instruments AM6254 quad-core Cortex-A53 Arm SoC designed to simplify the process of adding sensors, actuators, indicators, human interfaces, and connectivity to a reliable embedded system"
     form_factor: "credit_card"
